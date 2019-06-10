@@ -25,9 +25,7 @@ from sklearn.metrics import average_precision_score
 #string to test
 doc_new = ['obama is running for president in 2016']
 
-#the feature selection has been done in FeatureSelection.py module. here we will create models using those features for prediction
 
-#first we will use bag of words techniques
 
 #building classifier using naive bayes 
 nb_pipeline = Pipeline([
@@ -147,9 +145,7 @@ build_confusion_matrix(random_forest)
 #=========================================================================================
 
 
-"""So far we have used bag of words technique to extract the features and passed those featuers into classifiers. We have also seen the
-f1 scores of these classifiers. now lets enhance these features using term frequency weights with various n-grams
-"""
+
 
 ##Now using n-grams
 #naive-bayes classifier
@@ -213,34 +209,6 @@ build_confusion_matrix(svm_pipeline_ngram)
 build_confusion_matrix(sgd_pipeline_ngram)
 build_confusion_matrix(random_forest_ngram)
 
-#========================================================================================
-#n-grams & tfidf confusion matrix and F1 scores
-
-#Naive bayes
-# [841 3647]
-# [427 5325]
-# f1-Score: 0.723262051071
-
-#Logistic regression
-# [1617 2871]
-# [1097 4655]
-# f1-Score: 0.70113000531
-
-#svm
-# [2016 2472]
-# [1524 4228]
-# f1-Score: 0.67909201429
-
-#sgdclassifier
-# [  10 4478]
-# [  13 5739]
-# f1-Score: 0.718731637053
-
-#random forest
-# [1979 2509]
-# [1630 4122]
-# f1-Score: 0.665720333284
-#=========================================================================================
 
 print(classification_report(DataPrep.test_news['Label'], predicted_nb_ngram))
 print(classification_report(DataPrep.test_news['Label'], predicted_LogR_ngram))
@@ -415,9 +383,8 @@ plot_PR_curve(predicted_rf_ngram)
 
 
 """
-Now let's extract the most informative feature from ifidf vectorizer for all fo the classifiers and see of there are any common
-words that we can identify i.e. are these most informative feature acorss the classifiers are same? we will create a function that 
-will extract top 50 features.
+extract the most informative feature from ifidf vectorizer for all fo the classifiers and see of there are any common
+words that we can identify
 """
 
 def show_most_informative_features(model, vect, clf, text=None, n=50):
