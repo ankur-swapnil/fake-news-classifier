@@ -10,7 +10,7 @@ from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
 import seaborn as sb
 
-#before reading the files, setup the working directory to point to project repo
+
 #reading data files 
 
 
@@ -53,7 +53,6 @@ def create_distribution(dataFile):
 
 
 #data integrity check (missing label values)
-#none of the datasets contains missing values therefore no cleaning required
 def data_qualityCheck():
     
     print("Checking data qualitites...")
